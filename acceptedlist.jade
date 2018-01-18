@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p Here we will populate the list of influencers. Just for debugging purpose
+  -var obj = JSON.parse(json)
+  -for(var influencer in obj)
+    p List of influencers is #{influencer.applicantusername}
