@@ -1,0 +1,8 @@
+﻿.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+
+.form-horizontal{
+    max-width:900px;
+}

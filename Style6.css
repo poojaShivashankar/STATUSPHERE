@@ -1,0 +1,121 @@
+.modal-header .modal-title {text-align: center;font-family:'Philosopher',sans-serif; }
+
+/*style for tables */
+
+@media 
+only screen and (max-width: 425px)
+ {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	
+}
+/*style for status box displaying*/
+
+@media only screen and (min-width : 320px) {
+    .row.equal-height {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .row.equal-height > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row.equal-height.row:after,
+        .row.equal-height.row:before {
+            display: flex;
+        }
+
+        .row.equal-height > [class*='col-'] > .thumbnail,
+        .row.equal-height > [class*='col-'] > .thumbnail > .caption {
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: column;
+        }
+
+            .row.equal-height > [class*='col-'] > .thumbnail > .caption > .flex-text {
+                flex-grow: 1;
+            }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    .row.equal-height {
+        display:block;
+        margin:10px auto;
+    }
+}
+
+
+/*table- style for todo list and profile*/
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+

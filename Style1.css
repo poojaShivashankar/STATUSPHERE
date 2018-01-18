@@ -1,0 +1,264 @@
+﻿
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    border:1px solid red;
+    /* background:url('http://jsfiddle.net/img/initializing.png') no-repeat;
+    width:186px;
+    height:157px;*/
+}
+
+.button {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:100px;
+    height:30px;
+}
+
+
+.login_modal_header .modal-title {text-align: center;font-family:'Philosopher',sans-serif; }
+
+
+div.social-wrap button {
+    
+    height: 35px;
+    background: none;
+    border: none;
+    display: block;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-family:"Merriweather Sans", sans-serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+    width: 255px;
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    box-shadow: 0 4px 2px -2px gray;
+    text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
+}
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(../images/facebook-icon.png);
+cursor: pointer;
+}
+button#twitter {
+    border-color: #007aa6;
+    background-color: #008cbf;
+    background-image: url(../images/Twitter_logo_white.png);
+cursor: pointer;
+}
+button#googleplus {
+    border-color: #111;
+    background-color: red;
+    text-shadow: #333 -1px -1px 0;
+    background-image:url(../images/google-plus-xxl.png);
+cursor: pointer;
+}
+button#instagram {
+    border-color: saddlebrown;
+    background-color: saddlebrown;
+    background-image:url(../images/Active-Instagram-3-icon.png);
+cursor: pointer;
+}
+
+@media screen and (max-width:320px){
+
+   
+
+    #android {
+     display:block;
+        margin:10px auto;
+    }
+    #apple {
+     display:block;
+        margin:10px auto;
+    }
+       
+#facebook {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #googleplus {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #instagram {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #twitter {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #p1{
+        text-align:center;
+    }
+
+}
+@media screen and (max-width:375px){
+
+   
+
+    #android {
+     display:block;
+        margin:10px auto;
+    }
+    #apple {
+     display:block;
+        margin:10px auto;
+    }
+       
+#facebook {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #googleplus {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #instagram {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #twitter {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #p1{
+        text-align:center;
+    }
+
+}
+
+@media screen and (max-width:425px){
+
+   
+
+    #android {
+     display:block;
+        margin:10px auto;
+    }
+    #apple {
+     display:block;
+        margin:10px auto;
+    }
+       
+#facebook {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #googleplus {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #instagram {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #twitter {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #p1{
+        text-align:center;
+    }
+
+}
+
+@media screen and (min-width:476px) and (max-width:878px) {
+     #and_div {
+     width:100%;
+    }
+    #app_div {
+     width:100%;
+        
+    }
+    #center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}  
+      #facebook {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #googleplus {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #instagram {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #twitter {
+        display: block;
+        margin: 10px auto;
+    }
+    #p1{
+        text-align:center;
+    }
+
+}
+@media screen and (min-width:879px) {
+    #center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #img1{
+      width:100%;
+
+  }
+     #and_div {
+     width:100%;
+    }
+    #app_div {
+     width:100%;
+        
+    }
+      #facebook {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #googleplus {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #instagram {
+        display: block;
+        margin: 10px auto;
+    }
+
+    #twitter {
+        display: block;
+        margin: 10px auto;
+    }
+    #p1{
+        text-align:center;
+    }
+
+}
