@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Security code </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/securitycode.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+
+</head>
+<body ng-app="code_app" ng-controller="code_ctrl">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="alert alert-success fade" id="code-alert">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <!--<strong>Success! </strong>-->
+        You will receive security code within 2 minutes..
+    </div>
+     <div id="alert_placeholder1" class="text-center"></div>
+       <br />
+
+
+    <div class="container">
+        <div class="row">
+
+
+
+            <div id="security_code" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title"><strong> Enter Security Code </strong></div>
+
+                    </div>
+                    <div class="panel-body">
+
+                        <center><label>We have sent you a code to your email and mobile number. Your code is 6 numbers long. Please enter the code below.</label></center>
+
+                        <form name="form" class="class=" form-horizontal" novalidate="novalidate" role="form" ng-submit="form.$valid && check()">
+
+                            <div class="form-group text-center">
+                                <center>
+                                    <input id="code" placeholder="######" name="code" class="form-control" type="number" ng-model="code" required="required" ng-maxlength="6" style="width:50%;" />
+                                </center>
+                                <span class="help-block" ng-show="form.code.$error.required && form.$submitted" style="color:red;"> Please enter the code </span>
+
+                                <span style="color:red;" class="help-block" ng-show="!form.code.$pristine && form.code.$error.maxlength"> Code too long</span>
+                                <label>We sent your code to:</label>
+                                <br />
+                                <span>{{email}}</span>
+
+                                <br />
+                            </div>
+                            <div class="text-center">
+                                <input class="btn btn-primary" type="submit">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div>
+                            <a id="codelink" href="javascript:;" ng-click="code_notobtained()">didn't get a code ?</a>
+
+                            <div class="text-center">
+                                <a class="btn btn-default text-center" href="Startup.html">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/securitycode.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+

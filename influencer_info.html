@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style2.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- Bootstrap Libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/partials/influencer.css">
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="Startup" ng-controller="myctrl">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   <nav class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="product.html">Product</a></li>
+                <li class="active"><a href="influencer.html">Influencers</a></li>
+                <li><a href="influencer-package.html">Influencer-Package</a></li>
+                <li><a href="applicant_list.html">Applicant</a></li>
+                <li><a href="notification.html">Notification</a></li>
+                <li><a href="password_reset.html">Password Reset</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align:center;">Influencer Information</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <p><strong>Full Name: </strong></p>
+                <p><strong>Date of Birth:</strong></p>
+                <p><strong>Address:</strong></p>
+                <p><strong>City:</strong></p>
+                <p style="display:inline-block;width:49%;"><strong>State:</strong></p>
+                <p style="display:inline-block;width:49%"><strong>Country:</strong></p>
+                <p><strong>Zipcode</strong></p>
+                <p><strong>Phone</strong></p>
+                <p><strong>Email id</strong></p>
+                <p><strong>Instagram id</strong></p>
+                <p><strong>Packages completed</strong></p>
+                <p><strong>To Do's </strong></p>
+                <p><strong>Skills: </strong>
+            </div>
+           <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="pkges-imginfo">Packages</div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><img class="pkg-info-imgwrp" src="" /> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div>Brand 1:</div>
+                        <div class="status-titl">Status :</div>
+                        <div class="infulncr-status">
+                            <div>
+                                <input type="checkbox">
+                                <label for="statusOrd">Ordered</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for="statusCompl">Completed</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row each-pkg-statuswrp">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><img class="pkg-info-imgwrp" src="" /> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div>Brand 1:</div>
+                        <div class="status-titl">Status :</div>
+                        <div class="infulncr-status">
+                            <div>
+                                <input type="checkbox">
+                                <label for="statusOrd">Ordered</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for="statusCompl">Completed</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+   
+    <div id="bottomdiv">
+        <div class="navbar navbar-inverse navbar-static-bottom">
+            <div class="container">
+                <div class="navbar-text pull-left">
+                    <p> Copyright Statusphere</p>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038"> <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038"> <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038"> <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

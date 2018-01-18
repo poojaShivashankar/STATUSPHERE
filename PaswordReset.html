@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Reset</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="js/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body ng-app="reset_pwd_app" ng-controller="reset_pwd_ctrl">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Startup.html">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+
+    <div class="container">
+        <div class="row">
+            <div id="passwordreset" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Create New Password</div>
+                    </div>
+                    <div class="panel-body">
+                        <form id="signupform" class="form-horizontal" role="form" name="form" novalidate="novalidate" ng-submit="pass_reset.click()">                            
+                            <div class="form-group">
+                                <label for="email" class="control-label col-sm-3">New password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" ng-model="pass_reset.pass" name="password" placeholder="create your new password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/">
+                                    <span style="color:red;" class="help-block" ng-show="!form.password.$pristine && form.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="control-label col-sm-3">Confirm password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" ng-model="pass_reset.pass1" name="password_confirmation" placeholder="confirm your new password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/">
+                                    <span style="color:red;" class="help-block" ng-show="(!form.password_confirmation.$pristine && form.password.$error.required && !form.password_confirmation.$error.required) || (!form.password_confirmation.$pristine && form.password.$viewValue!==form.password_confirmation.$viewValue) || (!form.password_confirmation.$pristine && !form.password.$error.required && form.password_confirmation.$error.required)"> Password Mismatch</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-success" ng-disabled="form.$invalid">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/Passwordreset.js">  </script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

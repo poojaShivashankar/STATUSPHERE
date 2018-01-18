@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style5.css" />
+    <script src="\js\angular.min.js"></script>
+    <script src="js/countries.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <meta charset=utf-8 />
+    <style>
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section {
+            display: block;
+        }
+    </style>
+    <script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+                .width(200)
+                .height(200);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}</script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <script src="js/angular-datepicker.js"></script>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="Product.html">Products</a></li>
+                <li><a href="influencer.html">Influencers</a></li>
+                <li class="active"><a href="influencer-package.html">Influencer-Package</a></li>
+                <li><a href="applicant_list.html">Applicant</a></li>
+                <li><a href="notification.html">Notification</a></li>
+                <li><a href="password_reset.html">Password Reset</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title"> Create Package </h1>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-8">
+                    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
+                        <div class="form-group required col-md-12">
+                            <label for="packagename" class="control-label col-md-3">  Package Name </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="packagename" name="packagename" placeholder="Packagename" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <br />
+                        <div class="form-group required col-md-12">
+
+                            <label for="requirements" class="control-label col-md-3"> Requirements </label>
+                            <div class="col-md-5">
+                                <div id="dynamicInput">
+                                    <input class="form-control" id="requirements" name="myInputs[]" placeholder="Requirements" required="required" type="text" />
+
+
+                                </div>
+                                <input type="button" value="Add requirement" onClick="addInput('dynamicInput');">
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <script>
+                                var counter = 1;
+                                var limit = 10;
+                                function addInput(divName) {
+                                    if (counter == limit) {
+                                        alert("You have reached the limit of adding " + counter + " inputs");
+                                    }
+                                    else {
+                                        var newdiv = document.createElement('div');
+                                        newdiv.innerHTML =  " <br><input class='form-control' type='text' placeholder='Requirements' name='myInputs[]'>";
+                                        document.getElementById(divName).appendChild(newdiv);
+                                        counter++;
+                                    }
+                                }
+                            </script>
+
+
+
+                            <label for="quantity" class="control-label col-md-3"> Quantity </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="quantity" name="quantity" placeholder="Quantity" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+
+
+                            <label for="brandinstagram" class="control-label col-md-3"> Brand Instagram </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="brandinstagram" name="brandinstagram" placeholder="Brand Instagram" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+
+                            <label for="brandURL" class="control-label col-md-3"> Brand URL </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="brandURL" name="brandURL" placeholder="Brand URL" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+
+
+
+                            <label for="videolink" class="control-label col-md-3">  Video Link </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="videolink" name="Video Link" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="packageinfo" class="control-label col-md-3">  Product Info </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="packageinfo" name="Package Info" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+
+                            <label class="control-label col-md-3">  Categories  </label>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Fashion
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Food
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Sports
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Electronic Gadgets
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Lifestyle
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Makeup
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+
+                            <label for="Choose availability" class="control-label col-md-3">  Choose availability </label>
+                            <div class="col-md-5">
+                                <select class="form-control" id="chooseavailability1">
+                                    <option>Available</option>
+                                    <option>Unavailable</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <input type="button" name="c1" value="Create" ;>
+                                <input type="button" name="c2" value="Cancel" ;>
+
+                                <div class="form-group required col-md-12">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="row each-pkg-statuswrp">
+                            <div class="col-md-9">
+                                <span class="pull-right">
+                                    <div class="col-md-12">
+                                        <span class="pull-right">
+
+                                            <form action="">
+                                                <input type='file' onchange="readURL(this);" />
+                                                <img id="blah" src="#" alt="your image" />
+                                            </form>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="form-group required col-md-12">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+                           var app=angular.module("myapp",[]);
+                           app.directive('myUpload', [function () {
+                                return {
+                                    restrict: 'A',
+                                    link: function (scope, elem, attrs) {
+                                        var reader = new FileReader();
+                                        reader.onload = function (e) {
+                                            scope.image = e.target.result;
+                                            scope.$apply();
+                                        }
+                                        elem.on('change', function () {
+                                            reader.readAsDataURL(elem[0].files[0]);
+                                        });
+                                    }
+                                };
+                            }]);
+    </script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

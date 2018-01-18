@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="StyleSheet2.css" />
+
+
+    <!-- Bootstrap Libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/influencer-package.js"></script>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+</head>
+
+<body ng-app="myapp" ng-controller="myCtrl">
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="Product.html">Products</a></li>
+                <li><a href="influencer.html">Influencers</a></li>
+                <li class="active"><a href="influencer-package.html">Influencer-Package</a></li>
+                <li><a href="applicant_list.html">Applicant</a></li>
+                <li><a href="notification.html">Notification</a></li>
+                <li><a href="password_reset.html">Password Reset</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+        <button class="btn btn-default"><a href="createpackage.html">Create Package</a></button>
+        <h3 align="center"><b>INFLUENCER-PACKAGE LIST</b></h3>
+        <div class="container">
+            <div ng-app="myapp" ng-controller="myCtrl">
+                <table>
+                    <tr>
+                        <td align="right">Search:</td>
+                        <td><input ng-model="query[queryBy]" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right"> Search By:</td>
+                        <td>
+                            <select ng-model="queryBy">
+                                <option value="$"></option>
+                                <option value="Firstname">First Name</option>
+                                <option value="Lastname">Last Name</option>
+                                <option value="Packagename">Package Name</option>
+                                <option value="Duedate">Due Date</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table>
+                    <tr>
+
+                        <th align="center">First Name</th>
+                        <th align="center">Last Name</th>
+                        <th align="center">Package Name</th>
+                        <th align="center">Due Date</th>
+                        <th align="center">Accepted Date</th>
+                        <th align="center">Status</th>
+                    </tr>
+                    <tr ng-repeat="x in obj | filter:query">
+                        <td>{{x.Firstname}}</td>
+                        <td>{{x.Lastname}}</td>
+                        <td>{{x.Packagename}}</td>
+                        <td>{{x.Duedate}}</td>
+                        <td>{{x.Accepteddate}}</td>
+                        <td>{{x.Status}}</td>
+                    </tr>
+                    <!--
+                         <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><a href="#">View Profile</a></td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><a href="#">View Profile</a></td>
+
+                          </tr> -->
+
+                </table>
+            </div>
+        </div>
+    </div>
+        <div id="bottomdiv">
+            <div class="navbar navbar-inverse navbar-bottom">
+                <div class="container">
+                    <div class="navbar-text pull-left">
+                        <p> Copyright Statusphere</p>
+                    </div>
+                    <div class="pull-right">
+                        <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                        <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                        <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Status Todolist</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style6.css" />
+
+    <!--new added styles-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/Profile_display_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/statusbox.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!--new styles-->
+    <script src="js/angular.min.js"></script>
+
+</head>
+<body ng-app="status_app" ng-controller="status_ctrl">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="Statustodo.html">Home</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> {{usern}}</a></li>
+                <li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <ul class="nav nav-tabs nav-tabs-responsive">
+
+            <li class="active"><a href="#Status-List" data-toggle="tab"> Status List </a></li>
+            <li><a href="#Profile" data-toggle="tab"> Profile </a></li>
+            <li><a href="#To-Do-List" data-toggle="tab">  To-Do List </a></li>
+        </ul>
+
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="Status-List">
+                <br />
+
+                <div class="container-fluid">
+                    <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
+                    <center><span> Here are the list of products of your interest. You can select each product once and the product which you select will be displayed in your to do list.</span></center>
+                    <br />
+                     <div id="alert_placeholder1" class="text-center"></div>
+                             <br />
+                    <div class="row equal-height">
+                        <div class="col-sm-6 col-md-4" ng-repeat="product in statusbox">
+                            <div class="thumbnail">
+                                <br />
+                                <img src="\images\Active-Instagram-3-icon.png" height="250" width="250">
+                                <div class="caption">
+                                    <center><a href="#Product" ng-click="openmodal(product._id)">{{product.product_Name}} </a></center>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="Profile">
+
+
+
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <center><h1 class="panel-title">{{usern}}</h1></center>
+                                </div>
+                                 <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{userinfo.image_url}}">  </div>
+                                        <div class="col-md-9 col-lg-9">
+                                         <div class="table-responsive">
+                                            <table class="table table-user-information">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong> FirstName </strong></td>
+                                                        <td>{{userinfo.firstname}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> LastName </strong></td>
+                                                        <td>{{userinfo.lastname}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> Date Of Birth </strong></td>
+                                                        <td>{{userinfo.birthday}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> Gender </strong></td>
+                                                        <td>{{userinfo.gender}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Instagram Account</strong></td>
+                                                        <td>{{userinfo.instagram_url}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Facebook name</strong></td>
+                                                        <td>{{userinfo.facebook_url}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Twitter username</strong></td>
+                                                        <td>{{userinfo.twitter_url}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Snapchat username</strong></td>
+                                                        <td>{{userinfo.snapchat_url}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Youtube Channel</strong></td>
+                                                        <td>{{userinfo.youtube_channel}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Blog/Website</strong></td>
+                                                        <td>{{userinfo.website}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Address Line 1</strong></td>
+                                                        <td>{{userinfo.address}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Address Line 2</strong></td>
+                                                        <td>{{userinfo.address_line2}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Country</strong></td>
+                                                        <td>{{userinfo.country}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>State</strong></td>
+                                                        <td>{{userinfo.state}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>City</strong></td>
+                                                        <td>{{userinfo.city}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> <strong>Zip Code</strong></td>
+                                                        <td>{{userinfo.zip_Code}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> Mobile number</strong></td>
+                                                        <td>{{userinfo.mob}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong> Categories of Interest</strong></td>
+                                                        <td>{{userinfo.categories}}</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+
+                                    <center>
+                                        <button type="button" class="btn btn-sm btn-warning" ng-click="editprofile()"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                                    </center>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="To-Do-List">
+                <br />
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <center><h1 class="panel-title">Your todo list</h1></center>
+                                </div>
+                                <div class="panel-body" ng-repeat-start="item in todolist">
+                                    <center> <label>  <strong> {{item.productname}}</strong>    </label>    </center>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{item.productpath}}" height="300" width="300">  </div>
+
+                                        <div class="col-md-9 col-lg-9">
+                                            <table class="table table-user-information">
+                                                <tbody>
+                                                    <tr>
+                                                        <th> Requirements </th>
+                                                        <th>Enter the link upon successful post </th>
+                                                    </tr>
+                                                    <tr ng-repeat="x in item.requirements">
+                                                        <td>{{x.requirement_desc}}</td>
+                                                        <td><input type="url" value="{{x.linkforpost}}" /> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr ng-repeat-end ng-if="$index % 1 === 0" />
+                                <div class="panel-footer">
+                                    <center>
+
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </center>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="modal fade" id="Product" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center><h2 class="modal-title"> Overview of product</h2></center>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                    <div class="form-group" ng-repeat="product in statusbox | filter:{_id:productID}">
+                        <div class="centered">
+                            <center> <label>{{product.product_Name}}</label></center>
+                            <img class="center-block" height="250" width="250" src="{{product.image_Url}}" />
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <center><label class="control-label">Desciption:</label></center>
+
+                            <p>{{product.description}}</p>
+                        </div>
+                        <hr />
+                        <div class="form-group centered">
+                            <center><label class="form-group">Requirements:</label></center>
+                            <div ng-repeat="req in product.requirements">
+                                <p>
+                                    {{req.requirements}}
+                                </p>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+
+                            <form name="chkbox_form" novalidate="novalidate" ng-submit="chkbox_form.$valid && addtobox()">
+                                <label class="checkbox-inline" ng-class="{ 'has-error' : (chkbox_form.check1.$invalid && chkbox_form.check1.$touched) || (chkbox_form.check1.$invalid && chkbox_form.$submitted) }">
+                                    <input type="checkbox" name="check1" ng-model="form.checked" style="text-align:center;" ng-required="!someSelected(form.checked)" ng-blur="doTouched()">Yes I want that product and I agree to complete the required above actions
+                                </label>
+                                <br />
+                                <span class="help-block" ng-messages="chkbox_form.check1.$error" ng-show="(chkbox_form.check1.$invalid && chkbox_form.check1.$touched)||(chkbox_form.check1.$invalid && chkbox_form.$submitted)" style="color:red;">
+                                    Please check the checkbox if you want to accept the product
+                                </span>
+                                <br />
+
+                                <div class="text-center">
+
+                                    <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
+                                        <button name="button" type="submit" id="addbox" class="btn btn-primary">Add to todo list </button>
+                                    </span>
+
+                                </div>
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- End of Modal Login -->
+
+    <div class="modal fade" tabindex="-1" aria-hidden="true" id="confirmModal" style="display: none; z-index: 1050;">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:lightblue">
+                    <h3 class="modal-title"> Confirmation</h3>
+                </div>
+                <div class="modal-body" id="confirmMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirmOk">Ok</button>
+                    <button type="button" class="btn btn-warning" id="confirmCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal Confirm -->
+
+
+
+
+
+
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/todolist.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
+

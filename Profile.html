@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style5.css" />
+    <script src="js/angular.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+
+</head>
+<body ng-app="appProfile" ng-controller="ctrlProfile">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Startup.html">Home</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span>{{usern}}</a></li>
+                <li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+            <p class="lead"> Please fill the below form. Once you submit this form, then only the admin will evaluate your details and decide upon your acceptance.</p>
+
+        </div>
+    </div>
+    <div id="alert_placeholder3" class="text-center"></div>
+
+
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title"> Personal Info </h1>
+                </div>
+                <div class="panel-body">
+
+                    <form class="form-horizontal" name="theForm" ng-submit="theForm.$valid && updateProfile()" novalidate="novalidate">
+                        <div class="form-group required">
+                            <label for="firstname" class="control-label col-md-3">  First Name </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="firstname" ng-model="fn" name="firstname" placeholder="Firstname" required="required" type="text" />
+                                <span class="help-block" ng-show="theForm.firstname.$error.required && theForm.$submitted" style="color:red;"> First name is required</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="lastname" class="control-label col-md-3">  Last Name </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="lastname" name="lastname" ng-model="ln" placeholder="Lastname" required="required" type="text" />
+                                <span class="help-block" ng-show="theForm.lastname.$error.required && theForm.$submitted" style="color:red;"> Last name is required</span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="txtdateofbirth" name="dateofbirth" ng-model="dob" required="required" type="date" />
+                                <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Date of Birth is required</span>
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="Gender" class="control-label col-md-3">  Gender </label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="gender1" ng-model="sex" name="sex" required="required">
+                                    <option value="">Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                                <span class="help-block" ng-show="theForm.sex.$error.required && theForm.$submitted" style="color:red;"> Select your gender </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group required">
+                            <label for="Instagram-Account" class="control-label col-md-3">  Instagram Url </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="Instagram-Account" name="instagram" ng-model="insta" required="required" type="url" pattern="https?://.+" />
+                                <span class="help-block" ng-show="theForm.instagram.$error.required && theForm.$submitted" style="color:red;"> Instagram account is required</span>
+                                <span class="help-block" style="color:red" ng-show="theForm.instagram.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="Facebook-name" class="control-label col-md-3">  Facebook Url </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="Facebook-name" name="facebook" required="required" ng-model="fb" type="url" pattern="https?://.+" />
+                                <span class="help-block" ng-show="theForm.facebook.$error.required && theForm.$submitted" style="color:red;"> Facebook name is required</span>
+                                <span class="help-block" style="color:red" ng-show="theForm.facebook.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="Twitter-username" class="control-label col-md-3">  Twitter Url </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="Twitter-username" name="twitter" required="required" ng-model="tweet" type="url" pattern="https?://.+" />
+                                <span class="help-block" ng-show="theForm.twitter.$error.required && theForm.$submitted" style="color:red;"> Twitter username is required</span>
+                                <span class="help-block" style="color:red" ng-show="theForm.twitter.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Snapchat-username" class="control-label col-md-3">  Snapchat Url </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="Snapchat-username" name="snapchat" ng-model="sc" type="url" pattern="https?://.+" />
+
+                                <span class="help-block" style="color:red" ng-show="theForm.snapchat.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="youtubechannel" class="control-label col-md-3">  Youtube Channel </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="youtubechannel" name="youtubechannel" ng-model="yc" pattern="https?://.+" type="url" />
+
+                                <span class="help-block" style="color:red" ng-show="theForm.youtubechannel.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="blog" class="control-label col-md-3">  Blog/Website </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="blog" name="blog" type="url" pattern="https?://.+" ng-model="blog" />
+                                <span class="help-block" style="color:red" ng-show="theForm.blog.$error.url">
+                                    Sorry Not a Valid URL, Don't Forget to Use http://
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="addr1" name="addr1" required="required" type="text" ng-model="addr1" ng-maxlength="40" />
+                                <span class="help-block" ng-show="theForm.addr1.$error.required && theForm.$submitted" style="color:red;"> Address line 1 is required</span>
+                                <span class="help-block" ng-show="theForm.addr1.$error.maxlength" style="color:red;"> Only 40 charecters are allowed. Fill remaining in address 2 field</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addr2" class="control-label col-md-3">  Address Line 2 </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="addr2" name="addr2" type="text" ng-model="addr2" />
+
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="country" class="control-label col-md-3">  Country </label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="drpCountry" name="select_country" ng-model="selectCountry" ng-options="x.name for x in countries" ng-change="GetSelectedCountry()" required="required">
+                                    <option value="">Select Country</option>
+                                    <!-- <option ng-repeat="countryname in country"></option>-->
+
+                                </select>
+                                <span class="help-block" ng-show="theForm.select_country.$error.required && theForm.$submitted" style="color:red;"> Select your country </span>
+                            </div>
+
+                        </div>
+                        <div class="form-group required">
+                            <label for="states" class="control-label col-md-3">  State </label>
+                            <div class="col-md-7">
+                                <select name="select_state" class="form-control" ng-disabled="!selectCountry" id="drpState" ng-model="selectstate" ng-options="y.name for y in states | filter: {country_id:selectCountry.country_id}" required="required">
+                                    Select State
+                                    <option value="">Select state</option>
+                                </select>
+                                <span class="help-block" ng-show="theForm.select_state.$error.required && theForm.$submitted" style="color:red;"> Select your state </span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="city" class="control-label col-md-3">  City </label>
+                            <div class="col-md-7">
+
+                                <input class="form-control" id="city" name="city" required="required" type="text" ng-model="city" />
+                                <span class="help-block" ng-show="theForm.city.$error.required && theForm.$submitted" style="color:red;"> City is required</span>
+
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="zip" class="control-label col-md-3">  Zip Code </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="zip" name="zip" required="required" type="text" ng-model="zip" />
+                                <span class="help-block" ng-show="theForm.zip.$error.required && theForm.$submitted" style="color:red;"> Zip code is required </span>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="phno" class="control-label col-md-3">  Mobile number  </label>
+                            <div class="col-md-7">
+                                <input class="form-control" id="phno" name="phno" required="required" type="tel" ng-model="phno" />
+                                <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Please enter phone number along with your country code</span>
+                                <span>Example: +1 123-123-1234</span>
+
+                            </div>
+                        </div>
+                       <!-- <div class="form-group">
+                            <label for="picture" class="control-label col-md-3">  Upload your profile picture </label>
+
+                            <div class="col-md-7">
+
+
+                                <input type="file" name="myFile" ng-model="myFile" valid-file />
+
+                                <img ng-if="image" src="{{image}}" alt="">
+
+
+                                <span class="help-block" ng-show="theForm.myFile.$error.extension" style="color:red;">Invalid Image. Image must be in '.jpg','.jpeg' or '.png'</span>
+
+                            </div>
+
+                        </div>-->
+
+                        <div class="form-group required">
+                            <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
+
+                            <div class="col-md-7" ng-class="{ 'has-error' : (theForm.subscribe.$invalid && theForm.subscribe.$touched) || (theForm.subscribe.$invalid && theForm.$submitted) }">
+
+                                <label>
+                                    <input type="checkbox" class="form-check-input" id="subscribe1" value="fashion" name="subscribe" ng-model="subscribe[1]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Fashion
+
+
+                                </label>
+
+                                <label>
+
+                                    <input type="checkbox" class="form-check-input" id="subscribe2" value="food" name="subscribe" ng-model="subscribe[2]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Food
+                                </label>
+
+                                <label>
+
+                                    <input type="checkbox" class="form-check-input" id="subscribe3" value="sports" name="subscribe" ng-model="subscribe[3]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Sports
+                                </label>
+
+                                <label>
+
+                                    <input type="checkbox" class="form-check-input" id="subscribe4" value="electronic gadgets" name="subscribe" ng-model="subscribe[4]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Electronic Gadgets
+                                </label>
+
+                                <label>
+
+                                    <input type="checkbox" class="form-check-input" id="subscribe5" value="lifestyle" name="subscribe" ng-model="subscribe[5]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Lifestyle
+                                </label>
+
+                                <label>
+
+                                    <input type="checkbox" class="form-check-input" id="subscribe6" value="makeup" name="subscribe" ng-model="subscribe[6]" ng-required="!someSelected(subscribe)" ng-blur="doTouched()">
+                                    Makeup
+                                </label>
+                                <span class="help-block" ng-messages="theForm.subscribe.$error" ng-show="(theForm.subscribe.$invalid && theForm.subscribe.$touched)||(theForm.subscribe.$invalid && theForm.$submitted)" style="color:red;">
+                                    Please select atleast one category
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" tabindex="-1" aria-hidden="true" id="confirmPopup" style="display: none; z-index: 1050;">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:lightblue">
+                    <h3 class="modal-title"> Great!</h3>
+                </div>
+                <div class="modal-body" id="confirmMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirmOk">Ok</button>
+                    <!--  <button type="button" class="btn btn-warning" id="confirmCancel">Cancel</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/Profilepage.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+
+
+</html>
+
+

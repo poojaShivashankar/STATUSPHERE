@@ -1,0 +1,291 @@
+      <!DOCTYPE html>
+<html ng-app="Startup" ng-controller="myctrl">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style1.css" />
+    <script src="js/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="Startup.html">Home</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#login"> Login </a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#signup1"> Apply </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/f6ccfe7d97e709cdf0eef0556590ce7a.jpg" id="center" />
+
+                </div>
+                <div class="item">
+                    <img src="images/e1973a38300083.575c7d143f7f1.jpg" id="center" />
+
+                </div>
+                <div class="item">
+                    <img src="images/top-cosmetic-and-beauty-products_z15jqr.jpg" id="center" />
+
+                </div>
+                <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#" class="thumbnail">
+                    <img src="images/StatusBox.jpg" />
+                </a>
+                <p class="well">Statusphere was created by social influencers that were tired of receiving emails from brands pitching crappy products. Because of this, each product is vetted and tested to ensure quality. We complete a full review of each Statusphere product on our site that you will be able to review before selecting it to be in your StatusBox.</p>
+            </div>
+            <div class="col-md-6">
+
+                <a href="#" class="thumbnail">
+                    <img src="images/shopping-image.jpg" style="width:535px;height:471px;" />
+
+                </a>
+                <div class="text-center">
+                    <a href="#"> <img src="images/google-play-badge.png" /></a>
+                    <br />
+                    <br />
+                    <a href=""><img src="images/download-on-the-app-store.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header login_modal_header">
+
+                    <button type="button" class="close" ng-click="cancel()">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
+                </div>
+                <div class="modal-body">
+			  <div id="alert_placeholder" class="text-center"></div>
+<br />
+                    <form name="form1" ng-submit="form1.$valid && login()" novalidate="novalidate" role="form">
+                        <div class="form-group">
+
+                            <div class="text-center">
+
+                                <input type="text" id="usern" name="username" ng-model="formLogin.username" placeholder="username" required="required" />
+                                <i class="fa fa-user login-field-icon"></i>
+                                <span class="help-block" id="span_usern" ng-show="(form1.username.$error.required && form1.$submitted)" style="color:red;">Username is required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <input type="password" name="password" ng-model="formLogin.password" placeholder="password" required="required" />
+                                <i class="fa fa-lock login-field-icon"></i>
+                                <span class="help-block" ng-show="(form1.password.$error.required && form1.$submitted)" style="color:red;">Password is required</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group" id="button">
+                            <div class="text-center">
+                                <button name="button" type="submit" class="btn btn-primary"> Login </button>
+                            </div>
+                        </div>
+                            
+
+                        <div class="form-group">
+                            <div class="text-center">
+                                <a href="forgotpass.html" class="login-link text-center">Lost your password?</a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div id="rem" class="checkbox">
+                                <label>      <input data-ng-click="rememberMe()" data-ng-model="remember" name="remember" type="checkbox">   Remember Me</label>
+                            </div>
+                        </div>
+
+                    </form>
+                    <hr />
+                    <h4><p id="p1">--OR--</p></h4>
+
+
+                    <div class="social-wrap a">
+                        <button id="facebook" ng-click="FBlogin()">Log in with Facebook</button>
+                        <button id="twitter" ng-click="twitterLogin()">Log in with Twitter</button>
+                        <button id="googleplus" ng-click="googleplusLogin()">Log in with Google</button>
+                        <button id="instagram" ng-click="instagramLogin()">Log in with Instagram</button>
+                    </div>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" ng-click="cancel()">Close</button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="signup1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header login_modal_header">
+
+                    <button type="button" class="close" ng-click="cancelregister()">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Sign up</h2>
+                   
+                </div>
+                <div class="modal-body">
+                    <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
+				<div id="alert_placeholder1" class="text-center"></div>
+                             <br />
+                    <form name="theForm" novalidate="novalidate" class="form-horizontal" ng-submit="formModel.submit()" role="form">
+                        <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
+                        <div class="form-group row">
+                            <label class="control-label col-md-2" for="name">UserName:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-minlength="3" ng-maxlength="25" />
+                            </div>
+                            <div class="col-md-4">
+                                <!--<span style="color:red;" id="s1" class="help-block" ng-show="(theForm.text.$error.required && theForm.$submitted)">Username is required</span>-->
+                                <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.minlength)"> Username too short</span>
+                                <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.maxlength)"> Username too long</span>
+                                <span style="color:red;" id="s1" class="help-block" ng-show="theForm.text.$error.unique && theForm.$submitted"> Username is already taken</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label class="control-label col-md-2" for="email">Email:</label>
+                            <div class="col-md-6">
+
+                                <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+                            </div>
+                            <div class="col-md-4">
+                                <!--<span style="color:red;" class="help-block" ng-show="theForm.email.$error.required && theForm.$submitted">Email is required</span>-->
+                                <span style="color:red;" class="help-block" ng-show="!theForm.email.$pristine && theForm.email.$error.email"> please enter valid email</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-2" for="password">Password:</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                            </div>
+                            <div class="col-md-4">
+                                <!--   <span style="color:red;" class="help-block" ng-show="theForm.password.$error.required && theForm.$submitted">Password is required </span>-->
+                                <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+
+                            <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                            </div>
+                            <div class="col-md-4">
+                                <!-- <span style="color:red;" class="help-block" ng-show="theForm.password1.$error.required && theForm.$submitted">Password confirmation is required</span>-->
+                                <span style="color:red;" class="help-block" ng-show="(!theForm.password1.$pristine && theForm.password.$error.required && !theForm.password1.$error.required) || (!theForm.password1.$pristine && theForm.password.$viewValue!==theForm.password1.$viewValue) || (!theForm.password1.$pristine && !theForm.password.$error.required && theForm.password1.$error.required)"> Password Mismatch</span>
+                                <!---<span style="color:red;" class="help-block" ng-show="theForm.password1.$error.match">Password Mismatch </span>-->
+
+                            </div>
+
+                        </div>
+                       
+						
+                        <div class="text-center">
+                            <!--<button class="btn btn-primary" id="button" ng-click="submit();" /> Submit-->
+                            <!--<button class="btn btn-primary" type="submit" /> Submit-->
+                            <button class="btn btn-primary" type="submit" ng-disabled="theForm.$invalid" /> Submit
+                            <!--  <button class="btn btn-primary" type="submit" ng-click="formModel.onSubmit($event)" />Submit-->
+                        </div>
+                        <br />
+                        <!-- <div class="text-center">
+                             <button id="button1" type="reset" class="btn btn-default" ng-click="reset(theForm)" />
+                             Clear
+                         </div>-->
+                    </form>
+                     
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="cancelregister()">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+
+            <div class="navbar-text pull-left">
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
+            </div>
+
+            <div class="navbar-text pull-right">
+
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/OAuth.js"></script>
+
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
