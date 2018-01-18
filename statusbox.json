@@ -1,0 +1,46 @@
+{"statusbox":[
+  {
+    "productid": 1212,
+    "productname": "Facial1 && Gommage",
+    "productpath": "../images/active-instagram-3-icon.png#",
+    "productdesc": "When the Influencer clicks on product , he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton Yes I want this product and I agree to complete the required above actions and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.",
+    "productquantity": "2",
+    "requirements": [
+                  {"requirement_id": 1,"requirement_desc": "1. Post on instagram"},
+                  {"requirement_id": 2, "requirement_desc": "2. On Instagram must tag @seriousskincare."}
+                ]
+  },
+  {
+    "productid": 1213,
+    "productname": "Facial2 && Gommage",
+    "productpath": "../images/facebook-icon.png#",
+    "productdesc": "When the Influencer clicks on product , he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton Yes I want this product and I agree to complete the required above actions and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.",
+    "productquantity": "2",
+    "requirements": [
+                  {"requirement_id": 1,"requirement_desc": "1. Post on instagram with hashtag"},
+                  {"requirement_id": 2, "requirement_desc": "2. On Instagram must tag @seriousskincare."}
+                ]
+  },
+  {
+    "productid": 1214,
+    "productname": "Facial3 && Gommage",
+    "productpath": "../images/statusbox.jpg#",
+    "productdesc": "When the Influencer clicks on product , he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton Yes I want this product and I agree to complete the required above actions and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.",
+    "productquantity": "2",
+    "requirements": [
+                  {"requirement_id": 1,"requirement_desc": "1. Post on instagram"},
+                  {"requirement_id": 2, "requirement_desc": "2. On Instagram must tag @seriousskincare."}
+                ]
+  },
+  {
+    "productid": 1215,
+    "productname": "Facial4 && Gommage",
+    "productpath": "../images/active-instagram-3-icon.png#",
+    "productdesc": "When the Influencer clicks on product , he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton Yes I want this product and I agree to complete the required above actions and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.",
+    "productquantity": "2",
+    "requirements": [
+                  {"requirement_id": 1,"requirement_desc": "1. Post on instagram"},
+                  {"requirement_id": 2, "requirement_desc": "2. On Instagram must tag @seriousskincare."}
+                ]
+  }
+]}

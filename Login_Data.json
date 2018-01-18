@@ -1,0 +1,25 @@
+﻿{ "users" :
+  [
+    {
+      "username": "sathya",
+      "password": "Sathya@123",
+      "email": "sathyaucf@gmail.com"
+    },
+    {
+      "username": "ramu",
+      "password": "Ramu@123",
+      "email": "ramuucf@gmail.com"
+    },
+    {
+      "username": "visu",
+      "password": "Viswa@123",
+      "email": "viswaucf@gmail.com"
+    },
+    {
+      "username": "firaz",
+      "password": "Fir@1234",
+      "email": "firazucf@gmail.com"
+    }
+
+  ]
+} 
