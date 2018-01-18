@@ -1,0 +1,20 @@
+<html>
+    <body>
+     <div id="button">Get List of products</div>
+    <div id="response"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#button').click(function() {
+            // run an AJAX get request to the route you setup above...
+            // respect the cross-domain policy by using the same domain
+            // you used to access your index.html file!
+            $.get('http://localhost:3000/api/productslist', function(list) {
+                $('#response').html(list); // show the list
+            });
+        });
+    });
+    </script>
+
+    </body
+</html>

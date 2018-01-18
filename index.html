@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body ng-app="Startup" ng-controller="myctrl">
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '154470095076103',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
+
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#login1"> Login </a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#signup1"> Apply </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/f6ccfe7d97e709cdf0eef0556590ce7a.jpg" id="center" />
+
+                </div>
+                <div class="item">
+                    <img src="images/e1973a38300083.575c7d143f7f1.jpg" id="center" />
+
+                </div>
+                <div class="item">
+                    <img src="images/top-cosmetic-and-beauty-products_z15jqr.jpg" id="center" />
+
+                </div>
+                <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#" class="thumbnail">
+                    <img src="images/StatusBox.jpg" />
+                </a>
+                <p class="well">Statusphere was created by social influencers that were tired of receiving emails from brands pitching crappy products. Because of this, each product is vetted and tested to ensure quality. We complete a full review of each Statusphere product on our site that you will be able to review before selecting it to be in your StatusBox.</p>
+            </div>
+            <div class="col-md-offset-1 col-md-5">
+
+
+                <h4><strong><p id="p1"> Existing Users ? </p> </strong></h4>
+
+                <div class="centered">
+                    <button id="login1" class="btn btn-primary" data-toggle="modal" data-target="#login" ng-click="login()">Login</button>
+                </div>
+                <div id="login" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header login_modal_header">
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form name="form1" ng-submit="onsubmit()" novalidate="novalidate" role="form">
+
+
+
+                                    <div class="form-group">
+
+                                        <div class="text-center">
+
+                                            <input type="text" name="username" ng-model="username" placeholder="username" required="" />
+                                            <i class="fa fa-user login-field-icon"></i>
+                                            <span class="help-block" ng-show="(form1.username.$error.required && form1.$submitted)" style="color:red;">Username is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                            <input type="password" name="password" ng-model="password" placeholder="password" required="" />
+                                            <i class="fa fa-lock login-field-icon"></i>
+                                            <span class="help-block" ng-show="(form1.password.$error.required && form1.$submitted)" style="color:red;">Password is required</span>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group" id="button">
+                                        <div class="text-center">
+                                            <button name="button" type="submit" class="btn btn-primary"> Login </button>
+                                        </div>
+                                    </div>
+
+                                    <br />
+
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                        <a href="#" class="login-link text-center">Lost your password?</a>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div id="rem" class="checkbox">
+                                            <label>      <input data-ng-click="rememberMe()" data-ng-model="remember" name="remember" type="checkbox">   Remember Me</label>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                
+            
+            <div id="signup1" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header login_modal_header">
+
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h2 class="modal-title" id="myModalLabel">Apply</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name">UserName:</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-unique="{key: 'users', property: 'username'}" ng-minlength="3" ng-maxlength="25" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span style="color:red;" id="s1" class="help-block" ng-show="(theForm.text.$error.required && theForm.$submitted)">Username is required</span>
+                                        <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.minlength)"> Username too short</span>
+                                        <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.maxlength)"> Username too long</span>
+                                        <span style="color:red;" id="s1" class="help-block" ng-show="theForm.text.$error.unique && theForm.$submitted"> Username is already taken</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-2" for="email">Email:</label>
+                                    <div class="col-md-6">
+
+                                        <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span style="color:red;" class="help-block" ng-show="theForm.email.$error.required && theForm.$submitted">Email is required</span>
+                                        <span style="color:red;" class="help-block" ng-show="!theForm.email.$pristine && theForm.email.$error.email"> please enter valid email</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="password">Password:</label>
+                                    <div class="col-md-6">
+                                        <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span style="color:red;" class="help-block" ng-show="theForm.password.$error.required && theForm.$submitted">Password is required </span>
+                                        <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
+                                    <div class="col-md-6">
+                                        <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span style="color:red;" class="help-block" ng-show="theForm.password1.$error.required && theForm.$submitted">Password confirmation is required</span>
+                                        <span style="color:red;" class="help-block" ng-show="(!theForm.password1.$pristine && $theForm.password.$error.required && !theForm.password1.$error.required) || (!theForm.password1.$pristine && theForm.password.$viewValue!==theForm.password1.$viewValue) || (!theForm.password1.$pristine && !theForm.password.$error.required && theForm.password1.$error.required)"> Password Mismatch</span>
+
+                                    </div>
+
+
+                                </div>
+                                <br />
+                                <br />
+
+                                <div class="text-center">
+                                    <button class="btn btn-primary" id="button" ng-click="submit();" /> Submit
+                                </div>
+                                <br />
+                                <div class="text-center">
+
+                                    <button id="button1" type="reset" class="btn btn-default" ng-click="reset(theForm)" />
+                                    Clear
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <h4><p id="p1">--OR--</p></h4>
+
+
+            <div class="social-wrap a">
+                <button id="facebook" ng-click="FBlogin()">Log in with Facebook</button>
+                <button id="twitter">Log in with Twitter</button>
+                <button id="googleplus">Log in with Google</button>
+                <button id="instagram">Log in with Instagram</button>
+            </div>
+        </div>
+    </div>
+        </div>
+
+    
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        var app = angular.module('Startup', []);
+        app.controller("myctrl", function ($scope, $http) {
+
+            $scope.FBlogin = function () {
+                FB.login(function (response) {
+                    if (response.authResponse) {
+                        console.log('Welcome!  Fetching your information.... ');
+                        FB.api('http://joinstatus.com/', function (response) {
+                            console.log('Good to see you, ' + response.name + '.');
+                        });
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                });
+            };
+
+            /*    $scope.formModel = {};
+                 $scope.jsonStructure = [];
+                 $scope.submitting = false;
+     
+     
+                 $scope.submit = function () {
+                   if (valid) {
+                         $scope.jsonStructure.push($scope.formModel);
+                         
+                         $scope.submitting = true;
+                         console.log($scope.formModel);
+                         alert($scope.formModel);
+                         $http.post('Sample.json', $scope.jsonStructure).success(function(data){
+                             console.log($scope.jsonStructure);
+                             console.log(':)');
+                             $scope.submitting = false;
+                         }).error(function(data){
+                             console.log(':(');
+                             $scope.submitting = false;
+                         });
+                     */
+            //   } else {
+
+            //  console.log('Invalid');
+
+            //   };
+
+            $scope.submit = function () {
+
+
+
+                var data = $.param({
+                    book: JSON.stringify({
+                        username: $scope.name,
+                        email: $scope.email,
+                        password: $scope.password,
+                        confirm: $scope.retype-password
+                    })
+                });
+
+                $http.post("/", data).success(function (response) {
+                    console.log('Data posted successfully');
+                    alert(response);
+                    var l = response.length;
+                    response[0].username;
+                    var  sample = response.rows.row;
+                    for (var i = 0 ; i < l ; i++) {
+
+                        alert(response[i].username);
+                    }
+                })
+
+            };
+
+
+
+
+
+
+            $scope.reset = function (theForm) {
+                $scope.master = {};
+                theForm.$setPristine();
+
+            };
+
+
+
+        });
+
+
+    </script>
+
+
+
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
